@@ -13,7 +13,7 @@ insert into tutorials values (4,'test4','yes','rivertest');
 To start the sample app, you need to build first and run : 
 
 ```
-cd $targetSourceCodeFolder/
+cd $sourceCodeFolder/
 
 //check there is a build.gradle file in current folder, then : 
 
