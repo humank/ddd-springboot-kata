@@ -10,6 +10,18 @@ insert into tutorials values (3,'test3','yes','arthurtest');
 insert into tutorials values (4,'test4','yes','rivertest');
 ```
 
+To start the sample app, you need to build first and run : 
+
+```
+cd $targetSourceCodeFolder/
+
+//check there is a build.gradle file in current folder, then : 
+
+gradle build
+
+gradle bootRun
+```
+
 Test application by simplify using curl command : 
 > curl http://localhost:8080/api/tutorials | jq '.'
 > 
