@@ -21,7 +21,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-activemq'
+    //implementation 'org.springframework.boot:spring-boot-starter-activemq'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-artemis'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -29,20 +29,20 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-hateoas'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
-    implementation 'org.apache.kafka:kafka-streams'
+    //implementation 'org.apache.kafka:kafka-streams'
     implementation 'org.springframework.data:spring-data-rest-hal-explorer'
-    implementation 'org.springframework.kafka:spring-kafka'
+    //implementation 'org.springframework.kafka:spring-kafka'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'com.h2database:h2'
-    runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
-    runtimeOnly 'mysql:mysql-connector-java'
-    runtimeOnly 'org.postgresql:postgresql'
+    //runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
+    //runtimeOnly 'mysql:mysql-connector-java'
+    //runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
-    testImplementation 'org.springframework.kafka:spring-kafka-test'
+    //testImplementation 'org.springframework.kafka:spring-kafka-test'
 }
 
 test {
