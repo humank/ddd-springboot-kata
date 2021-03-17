@@ -22,6 +22,14 @@ gradle build
 gradle bootRun
 ```
 
+To check the data insertions runs well, just open browser and visit : 
+> http://localhost:8080/h2-ui
+> 
+modify the jdbc url to : 
+> jdbc:h2:mem:testdb
+> 
+then login :D 
+
 Test application by simplify using curl command : 
 > curl http://localhost:8080/api/tutorials | jq '.'
 > 
