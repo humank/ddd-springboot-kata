@@ -7,6 +7,7 @@ import solid.humank.dddpatterns.baseclasses.Specification;
 
 import java.util.List;
 
+@SuppressWarnings("ALL")
 public interface IRepository<T extends AggregateRoot, U extends EntityId> {
 
 

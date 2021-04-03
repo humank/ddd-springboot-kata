@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class DddSpringbootKataApplicationTests {
+public class DddSpringbootKataApplicationTests {
 
     @Autowired
     private TutorialController controller;
@@ -40,8 +40,7 @@ class DddSpringbootKataApplicationTests {
     void should_get_correct_json() throws Exception {
         String uri = "/api/tutorials";
 
-        String expected = "[{\"id\":1,\"title\":\"test1\",\"published\":true,\"description\":\"kimtest\"},{\"id\":2,\"title\":\"test2\",\"published\":true,\"description\":\"fongtest\"},{\"id\":3,\"title\":\"test3\",\"published\":true,\"description\":\"arthurtest\"},{\"id\":4,\"title\":\"test4\",\"published\":true,\"description\":\"rivertest\"}]";
-
+        String  expected= "[{\"id\":1,\"title\":\"test1\",\"published\":true,\"description\":\"kimtest\",\"status\":null},{\"id\":2,\"title\":\"test2\",\"published\":true,\"description\":\"fongtest\",\"status\":null},{\"id\":3,\"title\":\"test3\",\"published\":true,\"description\":\"arthurtest\",\"status\":null},{\"id\":4,\"title\":\"test4\",\"published\":true,\"description\":\"rivertest\",\"status\":null}]";
         ResultActions result = mockMvc.perform(MockMvcRequestBuilders.get(uri));
         String content = result.andReturn().getResponse().getContentAsString();
         assertEquals(expected,content);

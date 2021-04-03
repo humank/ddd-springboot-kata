@@ -4,12 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import solid.humank.dddspringbootkata.infra.persistent.Tutorial;
+import solid.humank.dddspringbootkata.applications.Tutorial;
+import solid.humank.dddspringbootkata.applications.TutorialApplication;
 import solid.humank.dddspringbootkata.infra.persistent.TutorialRepository;
+import solid.humank.dddspringbootkata.applications.TutorialDto;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
@@ -18,25 +21,24 @@ public class TutorialController {
     final
     TutorialRepository tutorialRepository;
 
-    public TutorialController(TutorialRepository tutorialRepository) {
+    final
+    TutorialApplication tutorialApplication;
+
+    public TutorialController(TutorialRepository tutorialRepository, TutorialApplication tutorialApplication) {
         this.tutorialRepository = tutorialRepository;
+        this.tutorialApplication = tutorialApplication;
     }
 
     @GetMapping("/tutorials")
-    public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String title) {
+    public ResponseEntity<List<TutorialDto>> getAllTutorials(@RequestParam(required = false) String title) {
         try {
-            List<Tutorial> tutorials = new ArrayList<>();
 
-            if (title == null)
-                tutorials.addAll(tutorialRepository.findAll());
-            else
-                tutorialRepository.findByTitleContaining(title).forEach(tutorials::add);
+            List<TutorialDto> dtos =  tutorialApplication.getAllTutorials(title);
 
-            if (tutorials.isEmpty()) {
+            if (dtos.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
-
-            return new ResponseEntity<>(tutorials, HttpStatus.OK);
+            return new ResponseEntity<>(dtos, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }

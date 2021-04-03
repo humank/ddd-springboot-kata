@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 
-public abstract class EntityId extends ValueObject {
+public abstract class EntityId extends ValueObject<EntityId> {
 
     @Getter(AccessLevel.PUBLIC)
     @Setter(AccessLevel.PROTECTED)

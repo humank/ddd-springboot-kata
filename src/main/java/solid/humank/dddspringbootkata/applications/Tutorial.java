@@ -1,4 +1,7 @@
-package solid.humank.dddspringbootkata.infra.persistent;
+package solid.humank.dddspringbootkata.applications;
+
+import solid.humank.dddspringbootkata.infra.persistent.TutorialNotCompletedException;
+import solid.humank.dddspringbootkata.infra.persistent.TutorialPublished;
 
 import javax.persistence.*;
 
@@ -76,5 +79,9 @@ public class Tutorial {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getStatus() {
+        return this.status;
     }
 }

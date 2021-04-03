@@ -1,11 +1,12 @@
 package solid.humank.dddspringbootkata.infra.persistent;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
+import solid.humank.dddspringbootkata.applications.Tutorial;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class TutorialTest {
+
 
     @Test
     void should_be_not_publishable_when_not_completed() throws TutorialNotCompletedException {

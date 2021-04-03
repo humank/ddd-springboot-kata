@@ -6,7 +6,7 @@ import lombok.Setter;
 
 import java.util.Objects;
 
-public class Enumeration implements Comparable {
+public class Enumeration implements Comparable<Enumeration> {
 
     @Setter(AccessLevel.PRIVATE)
     @Getter(AccessLevel.PUBLIC)
@@ -41,9 +41,8 @@ public class Enumeration implements Comparable {
     }
 
     @Override
-    public int compareTo(Object other) {
-
-        return this.compareTo(((Enumeration) other).id);
+    public int compareTo(Enumeration o) {
+        return Integer.compare(this.id, o.id);
     }
 }
 
