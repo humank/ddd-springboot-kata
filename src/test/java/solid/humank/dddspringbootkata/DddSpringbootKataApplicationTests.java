@@ -9,6 +9,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import solid.humank.dddspringbootkata.applications.Tutorial;
 import solid.humank.dddspringbootkata.webapi.TutorialController;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -44,6 +45,23 @@ public class DddSpringbootKataApplicationTests {
         ResultActions result = mockMvc.perform(MockMvcRequestBuilders.get(uri));
         String content = result.andReturn().getResponse().getContentAsString();
         assertEquals(expected,content);
+    }
+
+    @Test
+    void create_tutorail_should_get_correct_json() throws Exception {
+        String uri = "/api/tutorials";
+
+
+
+        Tutorial tutorial = new Tutorial();
+        tutorial.setTitle("ddd tutorial");
+        tutorial.setDescription("very long description");
+        ResultActions result = mockMvc.perform(MockMvcRequestBuilders.post(uri, tutorial));
+
+        String content = result.andReturn().getResponse().getContentAsString();
+
+        System.out.println(content);
+//        assertEquals(expected,content);
     }
 
 }
