@@ -36,4 +36,8 @@ public class TutorialApplication {
     }
 
 
+    public Tutorial save(Tutorial tutorial) {
+        return tutorialRepository
+                .save(new Tutorial(tutorial.getTitle(), tutorial.getDescription(), false));
+    }
 }

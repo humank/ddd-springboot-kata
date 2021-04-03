@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import solid.humank.dddspringbootkata.applications.Tutorial;
 import solid.humank.dddspringbootkata.applications.TutorialApplication;
+import solid.humank.dddspringbootkata.applications.TutorialReq;
 import solid.humank.dddspringbootkata.infra.persistent.TutorialRepository;
 import solid.humank.dddspringbootkata.applications.TutorialDto;
 
@@ -55,11 +56,15 @@ public class TutorialController {
         }
     }
 
+    private Tutorial toturialReqTranslator(TutorialReq tutorialReq){
+        return new Tutorial(tutorialReq.getTitle(), tutorialReq.getDescription(), false);
+    }
+
     @PostMapping("/tutorials")
-    public ResponseEntity<Tutorial> createTutorial(@RequestBody Tutorial tutorial) {
+    public ResponseEntity<Tutorial> createTutorial(@RequestBody TutorialReq tutorialReq) {
         try {
-            Tutorial _tutorial = tutorialRepository
-                    .save(new Tutorial(tutorial.getTitle(), tutorial.getDescription(), false));
+            Tutorial tutorial = toturialReqTranslator(tutorialReq);
+            Tutorial _tutorial = tutorialApplication.save(tutorial);
             return new ResponseEntity<>(_tutorial, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
