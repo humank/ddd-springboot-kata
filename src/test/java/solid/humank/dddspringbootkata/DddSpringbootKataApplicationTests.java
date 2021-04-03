@@ -51,17 +51,13 @@ public class DddSpringbootKataApplicationTests {
     void create_tutorail_should_get_correct_json() throws Exception {
         String uri = "/api/tutorials";
 
+        mockMvc.perform(MockMvcRequestBuilders.post(uri)
+                .content("{\"id\":99,\"title\":\"this is title\",\"desctiption\":\"this is description\"}")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isCreated())
+                .andReturn();
 
-
-        Tutorial tutorial = new Tutorial();
-        tutorial.setTitle("ddd tutorial");
-        tutorial.setDescription("very long description");
-        ResultActions result = mockMvc.perform(MockMvcRequestBuilders.post(uri, tutorial));
-
-        String content = result.andReturn().getResponse().getContentAsString();
-
-        System.out.println(content);
-//        assertEquals(expected,content);
     }
 
 }
