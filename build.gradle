@@ -7,13 +7,18 @@ plugins {
 
 group = 'solid.humank'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '15'
+//sourceCompatibility = '15'
 
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
 }
+
+compileJava {
+    options.compilerArgs += ["--enable-preview"]
+}
+
 
 repositories {
     maven { url 'https://repo.spring.io/release' }
@@ -56,4 +61,13 @@ hibernate {
         enableAssociationManagement = true
         enableExtendedEnhancement = false
     }
+}
+tasks.withType(JavaCompile) {
+    options.compilerArgs += "--enable-preview"
+}
+tasks.withType(Test) {
+    jvmArgs += "--enable-preview"
+}
+tasks.withType(JavaExec) {
+    jvmArgs += "--enable-preview"
 }
