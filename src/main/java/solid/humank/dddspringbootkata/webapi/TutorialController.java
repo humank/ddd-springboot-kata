@@ -15,8 +15,12 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 public class TutorialController {
-    @Autowired
+    final
     TutorialRepository tutorialRepository;
+
+    public TutorialController(TutorialRepository tutorialRepository) {
+        this.tutorialRepository = tutorialRepository;
+    }
 
     @GetMapping("/tutorials")
     public ResponseEntity<List<Tutorial>> getAllTutorials(@RequestParam(required = false) String title) {

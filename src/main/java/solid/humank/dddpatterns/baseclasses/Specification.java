@@ -17,7 +17,7 @@ public class Specification<T> {
         this.predicate = predicate;
     }
 
-    public Specification(T entity, Predicate predicate) {
+    public Specification(T entity, Predicate<T> predicate) {
         this.entity = entity;
         this.predicate = predicate;
     }
