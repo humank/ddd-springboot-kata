@@ -1,9 +1,7 @@
-package solid.humank.dddspringbootkata.applications;
+package solid.humank.tutorials.applications;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import solid.humank.dddspringbootkata.infra.persistent.TutorialRepository;
+import solid.humank.tutorials.infra.persistent.TutorialRepository;
 
 import java.util.ArrayList;
 import java.util.List;

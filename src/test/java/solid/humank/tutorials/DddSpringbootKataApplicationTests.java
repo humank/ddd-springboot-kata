@@ -1,4 +1,4 @@
-package solid.humank.dddspringbootkata;
+package solid.humank.tutorials;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,8 +10,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import solid.humank.dddspringbootkata.applications.Tutorial;
-import solid.humank.dddspringbootkata.webapi.TutorialController;
+import solid.humank.tutorials.applications.Tutorial;
+import solid.humank.tutorials.interfaces.TutorialController;
 
 import java.util.ArrayList;
 import java.util.List;

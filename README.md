@@ -1,7 +1,66 @@
 # ddd-springboot-kata
 
-This repo is to leverage spring boot sample project to refactory to ddd tactical design, way to point out the key steps in implementing function codes from test.
+This repo is to leverage spring boot sample project to refactor to ddd tactical design, way to point out the key steps in implementing function codes from test.
 
+## Architecture design follow Onion Architecture
+
+At beginning, we defined the layered architecture for separating responsibility, in order to better guide new-comers to know each layer's responsibility and mapping classic clean-architecture layers, design conventions, and DDD tactical design patterns, the following layers explained detail:
+
+folders under Bounded Context name -
+
+**Anti-corruption Layer as translator in each layer**
+
+From traditional design, there is always a database-table-like entity pass through-out to client, it leads to huge impact when modifying entities then each layer updates is a need.
+
+In order to well protect inner layers object not being impacted, when receiving external layer pass-in argument objects, translate it into inner layer objects for further instructions.
+
+**Models**
+
+* AggregateRoot
+* Aggregate
+* Entity
+* Value Object
+* Interfaces  
+* Repository (***interface only***)
+* Services
+  
+**Infrastructure**
+
+* Data access implementation
+* Migrations  
+* Cache
+* Logging
+* All the infra-specific services  
+
+**Interfaces (User Interface)**
+* Controllers
+* Views
+* ViewModels
+* GUI project
+
+**Configurations (aka.Framework and Drivers)**
+
+* Framework configurations
+* Database Driver configurations
+* Middleware settings
+
+**DDD Patterns**
+
+
+(In Spring boot framework, all of these configurations could be place here)
+
+## Kata objectives
+
+This kata guide DDD practitioners to refactor legacy code into Clean Architecture design, and by adding tests to make  sure all of these modifications still satisfied business requirements.
+
+### 1 - Add test for inquiry all tutorials
+### 2 - Extract I/O object types to DTO 
+### 3 - Add test for creating tutorial
+
+
+--------
+
+## How to run sample app
 There are a few default sample data loaded while starting application, spring boot will load data from /resources/data.sql : 
 ```
 insert into tutorials values (1,'test1','yes','kimtest');

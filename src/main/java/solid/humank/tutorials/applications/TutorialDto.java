@@ -1,4 +1,4 @@
-package solid.humank.dddspringbootkata.applications;
+package solid.humank.tutorials.applications;
 
 public class TutorialDto {
 

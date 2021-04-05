@@ -1,4 +1,4 @@
-package solid.humank.dddspringbootkata.infra.persistent;
+package solid.humank.tutorials.infra.persistent;
 
 import org.junit.jupiter.api.Test;
 

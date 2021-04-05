@@ -1,7 +1,7 @@
-package solid.humank.dddspringbootkata.infra.persistent;
+package solid.humank.tutorials.infra.persistent;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import solid.humank.dddspringbootkata.applications.Tutorial;
+import solid.humank.tutorials.applications.Tutorial;
 
 import java.util.List;
 

@@ -1,19 +1,16 @@
-package solid.humank.dddspringbootkata.webapi;
+package solid.humank.tutorials.interfaces;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import solid.humank.dddspringbootkata.applications.Tutorial;
-import solid.humank.dddspringbootkata.applications.TutorialApplication;
-import solid.humank.dddspringbootkata.applications.TutorialReq;
-import solid.humank.dddspringbootkata.infra.persistent.TutorialRepository;
-import solid.humank.dddspringbootkata.applications.TutorialDto;
+import solid.humank.tutorials.applications.Tutorial;
+import solid.humank.tutorials.applications.TutorialApplication;
+import solid.humank.tutorials.applications.TutorialReq;
+import solid.humank.tutorials.infra.persistent.TutorialRepository;
+import solid.humank.tutorials.applications.TutorialDto;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController

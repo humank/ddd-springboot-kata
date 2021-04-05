@@ -1,4 +1,4 @@
-package solid.humank.dddspringbootkata;
+package solid.humank.tutorials.configurations;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

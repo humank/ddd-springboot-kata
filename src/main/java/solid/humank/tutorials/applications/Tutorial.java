@@ -1,7 +1,7 @@
-package solid.humank.dddspringbootkata.applications;
+package solid.humank.tutorials.applications;
 
-import solid.humank.dddspringbootkata.infra.persistent.TutorialNotCompletedException;
-import solid.humank.dddspringbootkata.infra.persistent.TutorialPublished;
+import solid.humank.tutorials.infra.persistent.TutorialNotCompletedException;
+import solid.humank.tutorials.infra.persistent.TutorialPublished;
 
 import javax.persistence.*;
 

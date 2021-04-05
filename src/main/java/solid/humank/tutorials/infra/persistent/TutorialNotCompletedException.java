@@ -1,4 +1,4 @@
-package solid.humank.dddspringbootkata.infra.persistent;
+package solid.humank.tutorials.infra.persistent;
 
 public class TutorialNotCompletedException extends Exception {
     public TutorialNotCompletedException(String title, boolean published) {
