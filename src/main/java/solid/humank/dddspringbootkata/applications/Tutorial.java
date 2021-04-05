@@ -34,6 +34,15 @@ public class Tutorial {
         this.title = title;
         this.description = description;
         this.published = published;
+        this.status = "NOT_COMPLETED";
+    }
+
+    public Tutorial(int id, String title, String description, boolean published) {
+        this.id = id;
+        this.title=title;
+        this.description=description;
+        this.published = published;
+        this.status = "NOT_COMPLETED";
     }
 
     public long getId() {

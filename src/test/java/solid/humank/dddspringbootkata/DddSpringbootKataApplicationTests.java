@@ -1,22 +1,25 @@
 package solid.humank.dddspringbootkata;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import solid.humank.dddspringbootkata.applications.Tutorial;
 import solid.humank.dddspringbootkata.webapi.TutorialController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.internal.bytebuddy.matcher.ElementMatchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 
 // This is 鳳先, Hello World
 // 到此一遊
@@ -25,6 +28,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 public class DddSpringbootKataApplicationTests {
+
+    ObjectMapper objectMapper;
+
+    @BeforeEach
+    public void init(){
+        objectMapper = new ObjectMapper();
+    }
 
     @Autowired
     private TutorialController controller;
@@ -40,8 +50,13 @@ public class DddSpringbootKataApplicationTests {
     @Test
     void should_get_correct_json() throws Exception {
         String uri = "/api/tutorials";
+        List<Tutorial> tutorials = new ArrayList<Tutorial>();
+        tutorials.add(new Tutorial(91,"test1","kimtest",true));
+        tutorials.add(new Tutorial(92,"test2","fongtest",true));
+        tutorials.add(new Tutorial(93,"test3","arthurtest",true));//
+        tutorials.add(new Tutorial(94,"test4","rivertest",true));
 
-        String  expected= "[{\"id\":1,\"title\":\"test1\",\"published\":true,\"description\":\"kimtest\",\"status\":null},{\"id\":2,\"title\":\"test2\",\"published\":true,\"description\":\"fongtest\",\"status\":null},{\"id\":3,\"title\":\"test3\",\"published\":true,\"description\":\"arthurtest\",\"status\":null},{\"id\":4,\"title\":\"test4\",\"published\":true,\"description\":\"rivertest\",\"status\":null}]";
+        String  expected= objectMapper.writeValueAsString(tutorials);
         ResultActions result = mockMvc.perform(MockMvcRequestBuilders.get(uri));
         String content = result.andReturn().getResponse().getContentAsString();
         assertEquals(expected,content);

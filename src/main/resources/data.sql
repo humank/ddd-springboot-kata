@@ -1,4 +1,4 @@
-insert into tutorials (id,title,published,description) values (91,'test1',true,'kimtest');
-insert into tutorials (id,title,published,description) values (92,'test2',true,'fongtest');
-insert into tutorials (id,title,published,description) values (93,'test3',true,'arthurtest');
-insert into tutorials (id,title,published,description) values (94,'test4',true,'rivertest');
+insert into tutorials (id,title,published,description,status) values (91,'test1',true,'kimtest','NOT_COMPLETED');
+insert into tutorials (id,title,published,description,status) values (92,'test2',true,'fongtest','NOT_COMPLETED');
+insert into tutorials (id,title,published,description,status) values (93,'test3',true,'arthurtest','NOT_COMPLETED');
+insert into tutorials (id,title,published,description,status) values (94,'test4',true,'rivertest','NOT_COMPLETED');
